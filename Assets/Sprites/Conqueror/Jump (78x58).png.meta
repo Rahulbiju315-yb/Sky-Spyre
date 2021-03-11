@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: a5f5ab7b06b8f5f468b3484c01fc271b
+guid: b2304b9ab26f92c468771f0a11d93378
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4454723211052012213
-    second: Hit (78x58).png_0
-  - first:
-      213: -7304375713300091916
-    second: Hit (78x58).png_1
+      213: -3294574253389157637
+    second: Jump (78x58)_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -52,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,12 +94,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hit (78x58).png_0
+      name: Jump (78x58)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 78
+        width: 58
         height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -111,29 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b25177882b52dd30800000000000000
-      internalID: 4454723211052012213
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hit (78x58).png_1
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 0
-        width: 78
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fbe1ce2df4a1aa90800000000000000
-      internalID: -7304375713300091916
+      spriteID: bfa67940c225742d0800000000000000
+      internalID: -3294574253389157637
       vertices: []
       indices: 
       edges: []

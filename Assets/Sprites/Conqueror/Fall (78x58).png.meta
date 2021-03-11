@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 4033ea25b1849cc45b27f0b82864014f
+guid: 210792afdb1c54745af51c68e3e34b03
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4359699599150871543
-    second: Dead (38x28).png_0
-  - first:
-      213: 6168502531240596092
-    second: Dead (38x28).png_1
-  - first:
-      213: 102634284858237263
-    second: Dead (38x28).png_2
-  - first:
-      213: -4220070186500171597
-    second: Dead (38x28).png_3
+      213: 2004566321128258969
+    second: Fall (78x58)_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dead (38x28).png_0
+      name: Fall (78x58)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
-        height: 28
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,71 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90c0331305c3f73c0800000000000000
-      internalID: -4359699599150871543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dead (38x28).png_1
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 0
-        width: 38
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7291babe5cea9550800000000000000
-      internalID: 6168502531240596092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dead (38x28).png_2
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 0
-        width: 38
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4160ca9651ac6100800000000000000
-      internalID: 102634284858237263
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dead (38x28).png_3
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 0
-        width: 38
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b8d076368c4f65c0800000000000000
-      internalID: -4220070186500171597
+      spriteID: 99dbf8bc276a1db10800000000000000
+      internalID: 2004566321128258969
       vertices: []
       indices: 
       edges: []
