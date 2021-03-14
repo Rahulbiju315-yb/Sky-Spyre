@@ -8,11 +8,14 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float runSpeed = 10f;  //Similar to a private variable
     [SerializeField] float jumpSpeed = 10f;
+    [SerializeField] float climbSpeed = 8f;
 
     private Rigidbody2D myRigidBody2D;
     private Animator myAnimator;
     private BoxCollider2D myBoxCollider2D;
     PolygonCollider2D myPlayerFeet;
+
+    float startingGravityScale;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,10 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>(); // We need a reference to our player's animator (FOR CHANGING ANIMATIONS)
         myBoxCollider2D = GetComponent<BoxCollider2D>();// We need a reference to our player's box collider 2d (FOR PREVENTING MULTI JUMPS)
         myPlayerFeet = GetComponent<PolygonCollider2D>(); // We need a reference to our player's polygon collider 2d (FOR PREVENTING WALL JUMPS)
+
+        startingGravityScale = myRigidBody2D.gravityScale; // We need a reference to our player's initial gravity scale (FOR STICKING TO THE DRAPES WHILE CLIMBING)
+    
+    
     }
 
     // Update is called once per frame
@@ -28,7 +35,33 @@ public class Player : MonoBehaviour
     {
         Run();
         Jump();
+        Climb();
     }
+
+    private void Climb() // More Similar to running than jumping
+    {
+        if (myPlayerFeet.IsTouchingLayers(LayerMask.GetMask("Climbing"))) // Do this only if the player touches the 'Climbing' layer
+        {
+        
+            float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
+
+            Vector2 climbingVelocity = new Vector2(0, controlThrow * climbSpeed); // Only Change the Y direction, Make X 0 to kill any horizontal veloccity when player jumps onto the Drapes
+
+            myRigidBody2D.velocity = climbingVelocity;
+            
+            myAnimator.SetBool("Climbing", true); // Whenever player touches the drapes, activate Climbing animation
+
+            myRigidBody2D.gravityScale = 0f; // Makes player stick to the drapes
+        }
+        else
+        {
+            myAnimator.SetBool("Climbing", false); // Else, go back to Idling animation
+            myRigidBody2D.gravityScale = startingGravityScale; // Go back to normal gravity when not touching the drapes
+        }
+
+
+    }
+
 
     private void Jump()
     {
@@ -67,8 +100,8 @@ public class Player : MonoBehaviour
 
     private void toRunningState()
     {
-        bool runningHorizontally = Mathf.Abs(myRigidBody2D.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("Running", runningHorizontally);
+        bool isRunning = Mathf.Abs(myRigidBody2D.velocity.x) > Mathf.Epsilon;
+        myAnimator.SetBool("Running", isRunning);
     }
 
     private void flipSprite()
