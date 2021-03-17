@@ -9,11 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 10f;  //Similar to a private variable
     [SerializeField] float jumpSpeed = 10f;
     [SerializeField] float climbSpeed = 8f;
+    [SerializeField] Vector2 hitSpeed = new Vector2(50f, 50f);
 
     private Rigidbody2D myRigidBody2D;
     private Animator myAnimator;
     private BoxCollider2D myBoxCollider2D;
     PolygonCollider2D myPlayerFeet;
+
+    bool isHit = false; // To prevent player from being able to move for 2s after they are hit
 
     float startingGravityScale;
 
@@ -33,10 +36,47 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(!isHit) // Player can only do something if they have not been hit
+        {
+            
         Run();
         Jump();
         Climb();
+
+        if (myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy"))) // If player touches, the enemy, they are thrown back (with special animation) and can't move for 2 seconds
+        {
+            PlayerHit();
+
+        }
+
+        }
+        
+        
     }
+
+    private void PlayerHit()
+    {
+
+        myRigidBody2D.velocity = hitSpeed * new Vector2(-transform.localScale.x, 1f); // -transform.localScale.x (-1 or 1) kicks the  player AWAY from the enemy
+        myAnimator.SetTrigger("Hitting");
+
+        isHit = true; // Prevents player from doing anyting for 2s
+
+        StartCoroutine(stopBeingHit()); // Coroutine suspends the main program until a condition is met (Condition is : player being able to move again after 2s)
+
+    }
+
+    IEnumerator stopBeingHit() // Coroutine that prevents player from moving after being hit
+    {
+
+        yield return new WaitForSeconds(2f); // yield is used for the 'Suspension' aspect of this
+
+        isHit = false;
+    }
+
+
+
 
     private void Climb() // More Similar to running than jumping
     {
