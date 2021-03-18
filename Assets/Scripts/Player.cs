@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         
     }
 
-    private void PlayerHit()
+    public void PlayerHit()
     {
 
         myRigidBody2D.velocity = hitSpeed * new Vector2(-transform.localScale.x, 1f); // -transform.localScale.x (-1 or 1) kicks the  player AWAY from the enemy
