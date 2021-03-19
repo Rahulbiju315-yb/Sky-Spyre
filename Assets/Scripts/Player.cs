@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpSpeed = 10f;
     [SerializeField] float climbSpeed = 8f;
     [SerializeField] Vector2 hitSpeed = new Vector2(50f, 50f);
+    [SerializeField] Transform hurtBox;  // For Attacking
+    [SerializeField] float attackRadius = 3f;
 
     private Rigidbody2D myRigidBody2D;
     private Animator myAnimator;
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
         Run();
         Jump();
         Climb();
+        Attack();
 
         if (myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy"))) // If player touches, the enemy, they are thrown back (with special animation) and can't move for 2 seconds
         {
@@ -53,6 +56,26 @@ public class Player : MonoBehaviour
         }
         
         
+    }
+
+    private void Attack()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("Fire1")) // Check the button strings in Project Settings->Input Manager
+        {
+            myAnimator.SetTrigger("Attacking"); // Activate the animation
+
+            Collider2D[] enemiesToHit = Physics2D.OverlapCircleAll(hurtBox.position, attackRadius, LayerMask.GetMask("Enemy")); // OverlapCircleAll returns an array of Collider2Ds
+
+            foreach(Collider2D enemy in enemiesToHit)
+            {
+                enemy.GetComponent<Enemy>().Dying(); // Get a reference to the script of a collider in the array and call the method Dying()
+            }
+
+
+        }
+
+
+
     }
 
     public void PlayerHit()
@@ -74,9 +97,6 @@ public class Player : MonoBehaviour
 
         isHit = false;
     }
-
-
-
 
     private void Climb() // More Similar to running than jumping
     {
@@ -101,7 +121,6 @@ public class Player : MonoBehaviour
 
 
     }
-
 
     private void Jump()
     {
@@ -158,5 +177,10 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(myRigidBody2D.velocity.x), 1f);   // If vx>0, X scale is 1, if vx<0, X scale is -1 (flipped)
 
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(hurtBox.position, attackRadius);  // To visualise the attacking radius
     }
 }

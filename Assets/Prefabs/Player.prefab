@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1450805827491919493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2735747560998960849}
+  m_Layer: 0
+  m_Name: Hurt Box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2735747560998960849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450805827491919493}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4300003, y: 1.2099991, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1728936271231841533}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728936271231841535
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +45,7 @@ GameObject:
   - component: {fileID: 808595365}
   - component: {fileID: 7715523114882428258}
   - component: {fileID: 8756515627156782374}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +62,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.6, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2735747560998960849}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,8 +104,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1439590573
-  m_SortingLayer: 2
+  m_SortingLayerID: -1259538635
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: -3329629929579024788, guid: 7d25325f96237894f9c1d497109435f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,6 +198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 10
   jumpSpeed: 40
+  climbSpeed: 8
+  hitSpeed: {x: 50, y: 50}
+  hurtBox: {fileID: 2735747560998960849}
 --- !u!60 &8756515627156782374
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -196,8 +230,10 @@ PolygonCollider2D:
       - {x: -0.063642025, y: -0.3339658}
       - {x: -0.14310312, y: -0.32844839}
       - {x: -0.1449511, y: -0.33552203}
-      - {x: -0.14308476, y: -0.48367026}
-      - {x: 0.27788478, y: -0.4817936}
+      - {x: -0.14688158, y: -0.49835196}
+      - {x: -0.14488578, y: -0.4890732}
+      - {x: -0.14429903, y: -0.50778157}
+      - {x: 0.27191597, y: -0.50972927}
       - {x: 0.30685753, y: -0.44058752}
       - {x: 0.29574484, y: -0.34360284}
       - {x: 0.23044178, y: -0.3380535}

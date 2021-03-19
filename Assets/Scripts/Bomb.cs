@@ -25,6 +25,7 @@ public class Bomb : MonoBehaviour
         if(playerCollider) // To check if player is inisde the bombRadius
         {
             // 1. Push the Player in the right direction
+
             Vector2 correctDirection = new Vector2(-playerCollider.GetComponent<Player>().transform.localScale.x, 1f);
             playerCollider.GetComponent<Rigidbody2D>().AddForce(explosionForce * correctDirection);
             
