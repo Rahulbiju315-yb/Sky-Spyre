@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Decorations (32x32).png_10
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -3800570572917290115, guid: f0114f6360bdcae49a19e2a37c02e550, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9150943, g: 0.32287288, b: 0.6474971, a: 1}
   m_Transform:
     e00: 1
     e01: 0
