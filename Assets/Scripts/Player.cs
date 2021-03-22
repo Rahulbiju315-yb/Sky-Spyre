@@ -67,7 +67,6 @@ public class Player : MonoBehaviour
 
         if(CrossPlatformInputManager.GetButtonDown("Vertical"))
         {
-            myAnimator.SetTrigger("Door In");
             FindObjectOfType<Door>().StartLoadingNextLevel();
 
         }
