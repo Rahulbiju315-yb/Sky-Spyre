@@ -100,6 +100,8 @@ public class Player : MonoBehaviour
 
         isHit = true; // Prevents player from doing anyting for 2s
 
+        FindObjectOfType<GameSession>().processPlayerDeath(); // Subtracts 1 life if lives (before subtracting) > 1 and resets game, otherwise
+
         StartCoroutine(stopBeingHit()); // Coroutine suspends the main program until a condition is met (Condition is : player being able to move again after 2s)
 
     }
@@ -144,7 +146,6 @@ public class Player : MonoBehaviour
         {
             return;
         }
-
 
 
         Boolean isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
