@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
-
+    [SerializeField] Text livesText;
+    [SerializeField] Text scoreText;
+    [SerializeField] int score = 0;
     [SerializeField] int playerLives = 3;
 
     //Singleton Pattern
@@ -26,6 +29,14 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        livesText.text = playerLives.ToString(); // Assign the score and lives to the textboxes
+        scoreText.text = score.ToString();
+    }
+
+    
+    
 
     public void processPlayerDeath()
     {
@@ -41,9 +52,21 @@ public class GameSession : MonoBehaviour
 
     }
 
-    private void SubtractLife()
+    private void SubtractLife() 
     {
         playerLives--;
+        livesText.text = playerLives.ToString(); // Update the lives whenever the player is hit
+    }
+
+    public void AddLife(int value) // Update the lives whever player collects a heart
+    {
+        playerLives += value;
+        livesText.text = playerLives.ToString();
+    }
+    public void AddScore(int value) // So we can assign different values to different diamonds etc.
+    {
+        score += value;
+        scoreText.text = score.ToString(); // Update the score whenever the player collects a diamond
     }
 
     private void ResetGame()
