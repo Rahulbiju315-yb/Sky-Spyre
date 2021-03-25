@@ -31,7 +31,8 @@ public class Player : MonoBehaviour
         myPlayerFeet = GetComponent<PolygonCollider2D>(); // We need a reference to our player's polygon collider 2d (FOR PREVENTING WALL JUMPS)
 
         startingGravityScale = myRigidBody2D.gravityScale; // We need a reference to our player's initial gravity scale (FOR STICKING TO THE DRAPES WHILE CLIMBING)
-    
+
+        myAnimator.SetTrigger("Appearing");
     
     }
 
@@ -67,9 +68,22 @@ public class Player : MonoBehaviour
 
         if(CrossPlatformInputManager.GetButtonDown("Vertical"))
         {
-            FindObjectOfType<Door>().StartLoadingNextLevel();
+            myAnimator.SetTrigger("Disappearing");
+            
 
         }
+    }
+
+    public void LoadNextLevel()
+    {
+        FindObjectOfType<ExitThisDoor>().StartLoadingNextLevel();
+        TurnOffRenderer();
+
+    }
+
+    public void TurnOffRenderer()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void Attack()
