@@ -12,6 +12,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] Text scoreText;
     [SerializeField] int score = 0;
     [SerializeField] int playerLives = 3;
+    [SerializeField] Image[] hearts;
 
     //Singleton Pattern
 
@@ -55,14 +56,44 @@ public class GameSession : MonoBehaviour
     private void SubtractLife() 
     {
         playerLives--;
+        UpdateHeartsUI();
         livesText.text = playerLives.ToString(); // Update the lives whenever the player is hit
     }
 
     public void AddLife(int value) // Update the lives whever player collects a heart
     {
         playerLives += value;
+
+        if (playerLives >= 3)
+            playerLives = 3;         // Upper limit on player lives
+
+        UpdateHeartsUI();
+
+
+
+
+
         livesText.text = playerLives.ToString();
     }
+
+    private void UpdateHeartsUI()
+    {
+        for(int i=0;i<hearts.Length;i++)
+        {
+            if (i < playerLives)
+            {
+                hearts[i].enabled = true;
+            }
+                
+
+            else
+            {
+                hearts[i].enabled = false;
+            }
+
+        }
+    }
+
     public void AddScore(int value) // So we can assign different values to different diamonds etc.
     {
         score += value;
