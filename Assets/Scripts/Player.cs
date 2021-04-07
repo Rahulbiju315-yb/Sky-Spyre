@@ -7,7 +7,7 @@ using UnityStandardAssets.CrossPlatformInput; // Important
 public class Player : MonoBehaviour
 {
     [SerializeField] float runSpeed = 10f;  //Similar to a private variable
-    [SerializeField] float jumpSpeed = 10f;
+    [SerializeField] public float jumpSpeed = 10f;
     [SerializeField] float climbSpeed = 8f;
     [SerializeField] Vector2 hitSpeed = new Vector2(50f, 50f);
     [SerializeField] Transform hurtBox;  // For Attacking
