@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput; // Important
-
+using UnityEngine.SceneManagement; 
 public class Player : MonoBehaviour
 {
     [SerializeField] float runSpeed = 10f;  //Similar to a private variable
@@ -116,14 +116,14 @@ public class Player : MonoBehaviour
 
         FindObjectOfType<GameSession>().processPlayerDeath(); // Subtracts 1 life if lives (before subtracting) > 1 and resets game, otherwise
 
-        StartCoroutine(stopBeingHit()); // Coroutine suspends the main program until a condition is met (Condition is : player being able to move again after 2s)
+        StartCoroutine(stopBeingHit(2f)); // Coroutine suspends the main program until a condition is met (Condition is : player being able to move again after 2s)
 
     }
 
-    IEnumerator stopBeingHit() // Coroutine that prevents player from moving after being hit
+    IEnumerator stopBeingHit(float f) // Coroutine that prevents player from moving after being hit
     {
 
-        yield return new WaitForSeconds(2f); // yield is used for the 'Suspension' aspect of this
+        yield return new WaitForSeconds(f); // yield is used for the 'Suspension' aspect of this
 
         isHit = false;
     }
@@ -205,6 +205,17 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidBody2D.velocity.x), 1f);   // If vx>0, X scale is 1, if vx<0, X scale is -1 (flipped)
 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.name == "Traps")
+        {
+            myAnimator.SetTrigger("Hitting");
+            isHit = true;
+            StartCoroutine(stopBeingHit(2f));
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

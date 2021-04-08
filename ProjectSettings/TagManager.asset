@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Background
+  - Traps
   - Ground
   - Climbing
   - Player
@@ -67,4 +67,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2855376723
+    locked: 0
+  - name: Traps
+    uniqueID: 593214405
     locked: 0
