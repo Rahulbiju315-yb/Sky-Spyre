@@ -44,6 +44,9 @@ TagManager:
   - name: World Confiner
     uniqueID: 2672007787
     locked: 0
+  - name: Backdrop
+    uniqueID: 1410376035
+    locked: 0
   - name: Background
     uniqueID: 1901096907
     locked: 0
