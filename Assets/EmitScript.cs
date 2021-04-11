@@ -32,7 +32,7 @@ public class EmitScript : MonoBehaviour
 
             Vector2 to = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 vel = (to - new Vector2(player.transform.position.x, player.transform.position.y)).normalized * emissionVelocity;
-            litPSprefab.GetComponent<Rigidbody2D>().velocity = new Vector2(emissionVelocity, 0);
+            litPSprefab.GetComponent<Rigidbody2D>().velocity = vel;
             isAlive = true;
         }
 
