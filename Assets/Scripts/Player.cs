@@ -133,12 +133,13 @@ public class Player : MonoBehaviour
         if (myPlayerFeet.IsTouchingLayers(LayerMask.GetMask("Climbing"))) // Do this only if the player touches the 'Climbing' layer
         {
         
-            float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
+            float controlThrowV = CrossPlatformInputManager.GetAxis("Vertical");
+            float controlThrowH = CrossPlatformInputManager.GetAxis("Horizontal");
 
-            Vector2 climbingVelocity = new Vector2(0, controlThrow * climbSpeed); // Only Change the Y direction, Make X 0 to kill any horizontal veloccity when player jumps onto the Drapes
+            Vector2 climbingVelocity = new Vector2(controlThrowH * climbSpeed, controlThrowV * climbSpeed);
 
             myRigidBody2D.velocity = climbingVelocity;
-            
+ 
             myAnimator.SetBool("Climbing", true); // Whenever player touches the drapes, activate Climbing animation
 
             myRigidBody2D.gravityScale = 0f; // Makes player stick to the drapes
