@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 4377698465290524104}
   - component: {fileID: 8424963181731381342}
   - component: {fileID: -9063233055592207306}
+  - component: {fileID: 4250532967704125461}
   m_Layer: 0
   m_Name: LitParticles
   m_TagString: Untagged
@@ -637,7 +638,7 @@ Transform:
 --- !u!198 &4377698465290524111
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4377698465290524111, guid: 7a5aa5ef867cbcb46a055a3c4e649600, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7356270089729323097}
@@ -5454,8 +5455,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.89984375
-  m_PointLightOuterRadius: 1.3700415
+  m_PointLightInnerRadius: 1.3738483
+  m_PointLightOuterRadius: 2.370041
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -5468,3 +5469,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!70 &4250532967704125461
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356270089729323097}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0051540434, y: -0.047896475}
+  m_Size: {x: 0.7599204, y: 0.83563507}
+  m_Direction: 0

@@ -74,3 +74,6 @@ TagManager:
   - name: Traps
     uniqueID: 593214405
     locked: 0
+  - name: LitBackground
+    uniqueID: 2956515675
+    locked: 0

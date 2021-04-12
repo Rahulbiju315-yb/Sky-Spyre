@@ -26,17 +26,19 @@ public class EmitScript : MonoBehaviour
     {
         if (!isAlive && playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
-            Debug.Log("is alive" + isAlive);
             lastTime = Time.time;
             litPSprefab = (GameObject)Instantiate(litPSprefab, player.transform.position, transform.rotation);
+            litPSprefab.gameObject.active = true;
 
             Vector2 to = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 vel = (to - new Vector2(player.transform.position.x, player.transform.position.y)).normalized * emissionVelocity;
             litPSprefab.GetComponent<Rigidbody2D>().velocity = vel;
+            litPSprefab.name = "LitParticles";
             isAlive = true;
+
         }
 
-        if(isAlive && Time.time - lastTime > 1)
+        if (isAlive && Time.time - lastTime > 1)
         {
             isAlive = false;
         }
