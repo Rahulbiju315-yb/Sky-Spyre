@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D myRigidBody2D;
     private Animator myAnimator;
-    private BoxCollider2D myBoxCollider2D;
+    private CapsuleCollider2D capsuleCollider;
     PolygonCollider2D myPlayerFeet;
 
     bool isHit = false; // To prevent player from being able to move for 2s after they are hit
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     {
         myRigidBody2D = GetComponent<Rigidbody2D>(); // We need a reference to our player's rigid body (For HORIZONTAL MOVEMENT)
         myAnimator = GetComponent<Animator>(); // We need a reference to our player's animator (FOR CHANGING ANIMATIONS)
-        myBoxCollider2D = GetComponent<BoxCollider2D>();// We need a reference to our player's box collider 2d (FOR PREVENTING MULTI JUMPS)
+        capsuleCollider = GetComponent<CapsuleCollider2D>();// We need a reference to our player's box collider 2d (FOR PREVENTING MULTI JUMPS)
         myPlayerFeet = GetComponent<PolygonCollider2D>(); // We need a reference to our player's polygon collider 2d (FOR PREVENTING WALL JUMPS)
 
         startingGravityScale = myRigidBody2D.gravityScale; // We need a reference to our player's initial gravity scale (FOR STICKING TO THE DRAPES WHILE CLIMBING)
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
         Climb();
         Attack();
 
-        if (myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy"))) // If player touches, the enemy, they are thrown back (with special animation) and can't move for 2 seconds
+        if (capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Enemy"))) // If player touches, the enemy, they are thrown back (with special animation) and can't move for 2 seconds
         {
             PlayerHit();
 
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 
     private void ExitLevel()
     {
-        if (!myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Interactable")))
+        if (!capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Interactable")))
             return;
 
         if(CrossPlatformInputManager.GetButtonDown("Vertical"))
