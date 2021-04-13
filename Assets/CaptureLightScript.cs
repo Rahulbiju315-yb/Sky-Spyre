@@ -6,12 +6,14 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class CaptureLightScript : MonoBehaviour
 {
     public GameObject litPSprefab;
+    public GameObject gateOfDarkness;
     private bool isLit;
     // Start is called before the first frame update
     void Start()
     {
         isLit = false;
         gameObject.GetComponent<Light2D>().enabled = false;
+        gateOfDarkness.SetActive(true);
     }
 
     // Update is called once per frame
@@ -29,6 +31,10 @@ public class CaptureLightScript : MonoBehaviour
             litPSprefab = (GameObject)Instantiate(litPSprefab, gameObject.transform.position, gameObject.transform.rotation);
             litPSprefab.GetComponent<ParticleSystem>().loop = true;
             gameObject.GetComponent<Light2D>().enabled = true;
+            if(gateOfDarkness != null)
+            {
+                gateOfDarkness.SetActive(false);
+            }
             isLit = true;
         }
     }
