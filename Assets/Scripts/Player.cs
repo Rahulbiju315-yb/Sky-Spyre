@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     float startingGravityScale;
 
+    static int maxChkpPriority;
+    static Vector3 chkpPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,13 @@ public class Player : MonoBehaviour
         startingGravityScale = myRigidBody2D.gravityScale; // We need a reference to our player's initial gravity scale (FOR STICKING TO THE DRAPES WHILE CLIMBING)
 
         myAnimator.SetTrigger("Appearing");
+        
+        if(maxChkpPriority == 0)
+            chkpPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        else
+        {
+            transform.position = new Vector3(chkpPosition.x, chkpPosition.y, chkpPosition.z);
+        }    
     
     }
 
@@ -211,15 +220,43 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.name == "Traps")
+        if (collision.collider.gameObject.layer ==  LayerMask.NameToLayer("Traps"))
         {
-            myAnimator.SetTrigger("Hitting");
-            isHit = true;
-            StartCoroutine(stopBeingHit(2f));
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            OnDeath();
         }
     }
 
+    private void OnDeath()
+    {
+        myAnimator.SetTrigger("Hitting");
+        isHit = true;
+        StartCoroutine(stopBeingHit(2f));
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (maxChkpPriority > 0)
+        {
+            transform.position = new Vector3(chkpPosition.x, chkpPosition.y, transform.position.z);
+            Debug.Log("Hello there");
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Traps"))
+        {
+            OnDeath();
+        }
+
+        if (collision.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("SavePoint"))
+        {
+            Debug.Log("Checkpoint");
+            int priority = collision.GetComponent<Collider2D>().gameObject.GetComponent<SavePoint>().priority;
+            if (priority > maxChkpPriority)
+            {
+                maxChkpPriority = priority;
+                chkpPosition.x = transform.position.x;
+                chkpPosition.y = transform.position.y;
+            }
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(hurtBox.position, attackRadius);  // To visualise the attacking radius
