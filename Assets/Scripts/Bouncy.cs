@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bouncy : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float bounceSpeed = 50f;
     void Start()
     {
         
@@ -20,7 +21,7 @@ public class Bouncy : MonoBehaviour
     {
         if(collision.collider.name == "Player")
         {
-            collision.collider.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 50f);
+            collision.collider.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bounceSpeed);
         }
     }
 }
