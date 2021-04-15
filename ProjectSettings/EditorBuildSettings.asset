@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Level Selection.unity
     guid: 8d9e7cf104fe48347b950c8cceb8224f
   - enabled: 1
-    path: Assets/Scenes/Time.unity
-    guid: 6d22635637df7e44c87d738addc5ce9f
+    path: Assets/Scenes/Old levels/Time.unity
+    guid: c35f2c5eb0b90d047b1425aae8bb7163
   - enabled: 1
     path: Assets/Scenes/TestLevel.unity
     guid: fa23f16cff31a3d40aaa31ddb10136d7
