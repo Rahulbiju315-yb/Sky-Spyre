@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] float animationSpeed = 1f;
 
     [SerializeField] float runSpeed = 5f; //Left Facing Velocity
+    public bool isWizard = false;
 
     Rigidbody2D enemyRigidBody;
     Animator enemyAnimator; // Reference to animator for dying animation
@@ -22,7 +24,33 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyMovement();
+
+        CorrectAnimSpeed();
+
+        if (!isWizard)
+            EnemyMovement();
+    }
+
+    private void CorrectAnimSpeed()
+    {
+        if (Time.timeScale == 0.5f) //0.5x
+        {
+            animationSpeed = 2f;
+        }
+
+        if (Time.timeScale == 0.75f)
+        {
+            animationSpeed = 1.33f;
+        }
+
+        if (Time.timeScale >= 1f)
+        {
+            animationSpeed = 1f;
+        }
+
+
+        enemyAnimator.SetFloat("WizSpeed", animationSpeed);
+
     }
 
     public void Dying()
@@ -48,6 +76,8 @@ public class Enemy : MonoBehaviour
     }
     private void EnemyMovement()
     {
+        enemyTimeBubble();
+
         if (isFacingLeft())
         {
             enemyRigidBody.velocity = new Vector2(-runSpeed, 0f);
@@ -56,6 +86,25 @@ public class Enemy : MonoBehaviour
         {
             enemyRigidBody.velocity = new Vector2(runSpeed, 0);
         }
+    }
+
+    private void enemyTimeBubble()
+    {
+        if (Time.timeScale == 0.5f) //0.5x
+        {
+            runSpeed = 10f;
+        }
+
+        if (Time.timeScale == 0.75f)
+        {
+            runSpeed = 6.67f;
+        }
+
+        if (Time.timeScale >= 1f)
+        {
+            runSpeed = 5f;
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)

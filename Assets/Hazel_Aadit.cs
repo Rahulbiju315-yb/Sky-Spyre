@@ -19,6 +19,8 @@ public class Hazel_Aadit : MonoBehaviour
     private BoxCollider2D myBoxCollider2D;
     PolygonCollider2D myPlayerFeet;
 
+    public TimeManager timeManager;
+
     bool isHit = false; // To prevent player from being able to move for 2s after they are hit
 
     float startingGravityScale;
@@ -60,6 +62,8 @@ public class Hazel_Aadit : MonoBehaviour
         }
 
 
+        timeManager.DoSlowMotion(); // TIME!!!
+
     }
 
     private void ExitLevel()
@@ -75,12 +79,12 @@ public class Hazel_Aadit : MonoBehaviour
         }
     }
 
-    //public void LoadNextLevel()
-    //{
-    //    FindObjectOfType<ExitFromDoor>().StartLoadingNextLevel();
-    //    TurnOffRenderer();
+    public void LoadNextLevel()
+    {
+        FindObjectOfType<ExitThisDoor>().StartLoadingNextLevel();
+        TurnOffRenderer();
 
-    //}
+    }
 
     public void TurnOffRenderer()
     {
@@ -124,7 +128,7 @@ public class Hazel_Aadit : MonoBehaviour
     IEnumerator stopBeingHit() // Coroutine that prevents player from moving after being hit
     {
 
-        yield return new WaitForSeconds(2f); // yield is used for the 'Suspension' aspect of this
+        yield return new WaitForSecondsRealtime(1f); // yield is used for the 'Suspension' aspect of this
 
         isHit = false;
     }
