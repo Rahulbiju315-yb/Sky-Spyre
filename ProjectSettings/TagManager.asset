@@ -71,9 +71,12 @@ TagManager:
   - name: Bomb
     uniqueID: 2564690341
     locked: 0
+  - name: Traps
+    uniqueID: 593214405
+    locked: 0
   - name: Foreground
     uniqueID: 2855376723
     locked: 0
-  - name: Traps
-    uniqueID: 593214405
+  - name: LitForeground
+    uniqueID: 1513495383
     locked: 0
