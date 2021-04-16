@@ -13,7 +13,9 @@ public class PickupDiamond : MonoBehaviour
 
         FindObjectOfType<GameSession>().AddScore(diamondPoints); // increase the score whenever player collects a diamond
 
-        FindObjectOfType<TimeManager>().slowDownFactor += 0.25f;
+        TimeManager timeManager = FindObjectOfType<TimeManager>();
+        if(timeManager != null)
+            timeManager.slowDownFactor += 0.25f;
 
         Destroy(gameObject); // Make the heart disappear, when player touches them
     }
