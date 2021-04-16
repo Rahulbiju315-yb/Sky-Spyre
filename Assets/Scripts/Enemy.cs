@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D enemyRigidBody;
     Animator enemyAnimator; // Reference to animator for dying animation
 
-
+    GameObject patrolGround;
     // Start is called before the first frame update
     void Start()
     {
@@ -109,9 +109,21 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        flipSprite();
+        if (patrolGround == null)
+            patrolGround = collision.GetComponent<Collider2D>().gameObject;
+        
+        if(collision.GetComponent<Collider2D>().gameObject == patrolGround)
+            flipSprite();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (patrolGround == null)
+            patrolGround = collision.GetComponent<Collider2D>().gameObject;
+
+        if (collision.GetComponent<Collider2D>().gameObject != patrolGround)
+            flipSprite();
+    }
     private void flipSprite()
     {
         transform.localScale = new Vector2(Mathf.Sign(enemyRigidBody.velocity.x), 1f); // Check the sign of the velocity
