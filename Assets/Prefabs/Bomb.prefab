@@ -144,4 +144,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationSpeed: 1
   explosionForce: {x: 100, y: 100}
-  bombRadius: 3
+  bombRadius: 2.5

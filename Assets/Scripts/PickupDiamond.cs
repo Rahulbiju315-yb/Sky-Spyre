@@ -7,6 +7,38 @@ public class PickupDiamond : MonoBehaviour
     [SerializeField] AudioClip diamondPickupSFX;
 
     [SerializeField] int diamondPoints = 2;
+
+
+    
+    [SerializeField] float diamondTimeScore = 0.2f;
+    [SerializeField] float animationSpeed = 1f;
+    Animator diamondAnimator;
+
+    void Start()
+    {
+        diamondAnimator = GetComponent<Animator>();
+    }
+    void Update()
+    {
+
+        CorrectAnimSpeed();
+    }
+
+    private void CorrectAnimSpeed()
+    {
+
+        if (Time.timeScale < 1f)
+            animationSpeed = 1 / Time.timeScale;
+
+        if (Time.timeScale >= 1f)
+        {
+            animationSpeed = 1f;
+        }
+
+
+        diamondAnimator.SetFloat("DiaSpeed", animationSpeed);
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         AudioSource.PlayClipAtPoint(diamondPickupSFX, Camera.main.transform.position); // The camera is following the player, so this works
@@ -15,7 +47,7 @@ public class PickupDiamond : MonoBehaviour
 
         TimeManager timeManager = FindObjectOfType<TimeManager>();
         if(timeManager != null)
-            timeManager.slowDownFactor += 0.25f;
+            timeManager.slowDownFactor += diamondTimeScore;
 
         EmitScript escript = FindObjectOfType<EmitScript>();
         if (escript != null)

@@ -14,7 +14,22 @@ public class DialogueTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Touching");
+
         TriggerDialogue();
         Destroy(gameObject);
     }
+
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{   Debug.Log("Exit");
+    //    DestroyDialogueTrigger();
+    //}
+
+
+    //void DestroyDialogueTrigger()
+    //{
+        
+    //    Hazel_Aadit.isHit = false;
+    //    Destroy(gameObject);
+    //}
+
 }

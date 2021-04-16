@@ -21,7 +21,7 @@ public class Hazel_Aadit : MonoBehaviour
 
     public TimeManager timeManager;
 
-    bool isHit = false; // To prevent player from being able to move for 2s after they are hit
+    public static bool isHit = false; // To prevent player from being able to move for 2s after they are hit
 
     float startingGravityScale;
 
