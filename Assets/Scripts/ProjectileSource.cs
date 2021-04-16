@@ -19,7 +19,7 @@ public class ProjectileSource : MonoBehaviour
     public float projectileLifetime;
 
     public float attackDelay;
-    private bool isfiring;
+    public bool hasActivated;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,6 @@ public class ProjectileSource : MonoBehaviour
         projectileStartTime = new float[numberOfProjectiles];
  
         nextIndex = 0;
-        isfiring = false;
         StartCoroutine(DelayAndFire());
     }
 
@@ -47,20 +46,25 @@ public class ProjectileSource : MonoBehaviour
     {
         while(true)
         {
+            
             nextIndex = 0;
-            for(int i = 0; i < numberOfProjectiles; i++)
+            for (int i = 0; i < numberOfProjectiles; i++)
             {
-                gameObject.GetComponent<Animator>().SetTrigger("Attack");
-                yield return new WaitForSeconds(0.5f);
-                Debug.Log("Enter");
-                projectiles[nextIndex] = Instantiate(projectilePrefab, gameObject.transform.position, gameObject.transform.rotation);
-                projectiles[nextIndex].GetComponent<Rigidbody2D>().velocity = GetPlayerDirVec() * projectileSpeed;
-                projectileStartTime[nextIndex] = Time.time;
-                nextIndex++;
-                gameObject.GetComponent<Animator>().SetTrigger("Idle");
+                if (hasActivated)
+                {
+                    gameObject.GetComponent<Animator>().SetTrigger("Attack");
+                    yield return new WaitForSeconds(0.5f);
+                    Debug.Log("Enter");
+                    projectiles[nextIndex] = Instantiate(projectilePrefab, gameObject.transform.position, gameObject.transform.rotation);
+                    projectiles[nextIndex].GetComponent<Rigidbody2D>().velocity = GetPlayerDirVec() * projectileSpeed;
+                    projectileStartTime[nextIndex] = Time.time;
+                    nextIndex++;
+                    gameObject.GetComponent<Animator>().SetTrigger("Idle");
+                }
                 yield return new WaitForSeconds(projectileDelay);
             }
             yield return new WaitForSeconds(attackDelay);
+      
         }
 
     }
