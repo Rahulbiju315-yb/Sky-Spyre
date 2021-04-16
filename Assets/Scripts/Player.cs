@@ -105,7 +105,11 @@ public class Player : MonoBehaviour
 
             foreach(Collider2D enemy in enemiesToHit)
             {
-                enemy.GetComponent<Enemy>().Dying(); // Get a reference to the script of a collider in the array and call the method Dying()
+                Enemy e = enemy.GetComponent<Enemy>();
+                if (e != null)
+                { 
+                    e.Dying(); // Get a reference to the script of a collider in the array and call the method Dying()
+                }
             }
 
 
