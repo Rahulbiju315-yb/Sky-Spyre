@@ -10,7 +10,7 @@ public class GameSession : MonoBehaviour
 {
     [SerializeField] Text livesText;
     [SerializeField] Text scoreText;
-    [SerializeField] int score = 0;
+    public int score = 0;
     [SerializeField] int playerLives = 3;
     [SerializeField] Image[] hearts;
 
@@ -34,6 +34,7 @@ public class GameSession : MonoBehaviour
     {
         livesText.text = playerLives.ToString(); // Assign the score and lives to the textboxes
         scoreText.text = score.ToString();
+
     }
 
     

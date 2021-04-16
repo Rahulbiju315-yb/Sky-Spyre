@@ -9,6 +9,12 @@ public class CaptureLightScript : MonoBehaviour
     public GameObject gateOfDarkness;
     private bool isLit;
     // Start is called before the first frame update
+
+    public bool IsLit()
+    {
+        return isLit;
+    }
+
     void Start()
     {
         isLit = false;
