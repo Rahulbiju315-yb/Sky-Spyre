@@ -23,7 +23,7 @@ public class Gravity : MonoBehaviour
     void Update(){
         if(g){
             this.GetComponent<Rigidbody2D>().AddForce(f);
-            player.jumpSpeed = +55;
+            player.jumpSpeed = +75;
             tr.rotation=Quaternion.Euler(0,0,0);
         }
         else {
