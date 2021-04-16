@@ -9,9 +9,11 @@ public class EmitScript : MonoBehaviour
 
     private float lastTime;
     private bool isAlive;
-
+    
     public GameObject litPSprefab;
     public float emissionVelocity;
+
+    private bool hasBeenAcquired;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +21,19 @@ public class EmitScript : MonoBehaviour
         playerAnimator = player.GetComponent<Animator>();
         lastTime = 0;
         isAlive = false;
+        hasBeenAcquired = false;
+
+}
+
+    public void GainPowerup()
+    {
+        hasBeenAcquired = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isAlive && playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
+        if (hasBeenAcquired && !isAlive && playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
             lastTime = Time.time;
             litPSprefab = (GameObject)Instantiate(litPSprefab, player.transform.position, transform.rotation);
