@@ -23,12 +23,12 @@ public class Gravity : MonoBehaviour
     void Update(){
         if(g){
             this.GetComponent<Rigidbody2D>().AddForce(f);
-            player.jumpSpeed = +150;
+            player.jumpSpeed = +95;
             tr.rotation=Quaternion.Euler(0,0,0);
         }
         else {
             tr.rotation=Quaternion.Euler(0,180,180);
-            player.jumpSpeed = -55;
+            player.jumpSpeed = -83;
         }
     }
 
