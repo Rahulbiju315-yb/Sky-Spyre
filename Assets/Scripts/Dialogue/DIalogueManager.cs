@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DIalogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
 
     public Animator animator;
 
@@ -56,7 +57,7 @@ public class DIalogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return null;
         }
-    }
+    } // Types sentence 1 character at a time
 
     public void EndDialogue()
     {
