@@ -30,20 +30,12 @@ public class ProjectileSource : MonoBehaviour
  
         nextIndex = 0;
         isfiring = false;
+        StartCoroutine(DelayAndFire());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((Time.time - lastTime > attackDelay || nextIndex != numberOfProjectiles) && !isfiring)
-        {
-            if (nextIndex == numberOfProjectiles)
-                nextIndex = 0;
-
-            StartCoroutine(DelayAndFire());
-            lastTime = Time.time;
-        }
-
         DisableDeadProjectiles();
     }
 
@@ -53,13 +45,23 @@ public class ProjectileSource : MonoBehaviour
     }
     IEnumerator DelayAndFire()
     {
-        isfiring = true;
-        projectiles[nextIndex] = Instantiate(projectilePrefab, gameObject.transform.position, gameObject.transform.rotation);
-        projectiles[nextIndex].GetComponent<Rigidbody2D>().velocity = GetPlayerDirVec() * projectileSpeed;
-        projectileStartTime[nextIndex] = Time.time;
-        nextIndex++;
-        yield return new WaitForSeconds(projectileDelay);
-        isfiring = false;
+        while(true)
+        {
+            nextIndex = 0;
+            for(int i = 0; i < numberOfProjectiles; i++)
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("Attack");
+                yield return new WaitForSeconds(0.5f);
+                Debug.Log("Enter");
+                projectiles[nextIndex] = Instantiate(projectilePrefab, gameObject.transform.position, gameObject.transform.rotation);
+                projectiles[nextIndex].GetComponent<Rigidbody2D>().velocity = GetPlayerDirVec() * projectileSpeed;
+                projectileStartTime[nextIndex] = Time.time;
+                nextIndex++;
+                gameObject.GetComponent<Animator>().SetTrigger("Idle");
+                yield return new WaitForSeconds(projectileDelay);
+            }
+            yield return new WaitForSeconds(attackDelay);
+        }
 
     }
 
@@ -72,6 +74,16 @@ public class ProjectileSource : MonoBehaviour
                 if(projectiles[i] != null)
                     projectiles[i].SetActive(false);
             }
+        }
+    }
+
+    public void Stop()
+    {
+        StopAllCoroutines();
+        for (int i = 0; i < numberOfProjectiles; i++)
+        {
+            if (projectiles[i] != null)
+                projectiles[i].SetActive(false);
         }
     }
 }
