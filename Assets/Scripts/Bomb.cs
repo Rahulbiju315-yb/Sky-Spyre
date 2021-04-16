@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
+    [SerializeField] float animationSpeed  =1f;
 
     [SerializeField] Vector2 explosionForce = new Vector2(100f, 100f);
     [SerializeField] float bombRadius = 3f;
@@ -13,6 +15,29 @@ public class Bomb : MonoBehaviour
     void Start()
     {
         myAnimator = GetComponent<Animator>();
+        CorrectAnimSpeed();
+    }
+
+    private void CorrectAnimSpeed()
+    {
+        if (Time.timeScale == 0.5f) //0.5x
+        {
+            animationSpeed = 2f;
+        }
+
+        if (Time.timeScale == 0.75f)
+        {
+            animationSpeed = 1.33f;
+        }
+
+        if (Time.timeScale >= 1f)
+        {
+            animationSpeed = 1f;
+        }
+
+
+        myAnimator.SetFloat("BombSpeed", animationSpeed);
+
     }
 
     // We deleted the Update() method
@@ -26,12 +51,12 @@ public class Bomb : MonoBehaviour
         {
             // 1. Push the Player in the right direction
 
-            Vector2 correctDirection = new Vector2(-playerCollider.GetComponent<Player>().transform.localScale.x, 1f);
+            Vector2 correctDirection = new Vector2(-playerCollider.GetComponent<Hazel_Aadit>().transform.localScale.x, 1f);
             playerCollider.GetComponent<Rigidbody2D>().AddForce(explosionForce * correctDirection);
             
             //2. Give the player velocity and make them unable to move for 2s afterwards. (We used this for getting hit by the pig(Enemy) too)
             
-            playerCollider.GetComponent<Player>().PlayerHit();
+            playerCollider.GetComponent<Hazel_Aadit>().PlayerHit();
 
 
         }

@@ -6,12 +6,20 @@ public class PickupDiamond : MonoBehaviour
 {
     [SerializeField] AudioClip diamondPickupSFX;
 
-    [SerializeField] int diamondPoints = 100;
+    [SerializeField] int diamondPoints = 2;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         AudioSource.PlayClipAtPoint(diamondPickupSFX, Camera.main.transform.position); // The camera is following the player, so this works
 
         FindObjectOfType<GameSession>().AddScore(diamondPoints); // increase the score whenever player collects a diamond
+
+        TimeManager timeManager = FindObjectOfType<TimeManager>();
+        if(timeManager != null)
+            timeManager.slowDownFactor += 0.25f;
+
+        EmitScript escript = FindObjectOfType<EmitScript>();
+        if (escript != null)
+            escript.GainPowerup();
 
         Destroy(gameObject); // Make the heart disappear, when player touches them
     }
