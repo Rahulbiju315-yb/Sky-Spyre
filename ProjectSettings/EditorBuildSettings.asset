@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Level Selection.unity
     guid: 8d9e7cf104fe48347b950c8cceb8224f
   - enabled: 1
-    path: Assets/Scenes/Old levels/Time.unity
-    guid: c35f2c5eb0b90d047b1425aae8bb7163
+    path: Assets/Scenes/Old levels/TIme Horizontal.unity
+    guid: 7d9734b7029cffc449e8b1bfed903515
   - enabled: 1
     path: Assets/Scenes/Dark.unity
     guid: fa23f16cff31a3d40aaa31ddb10136d7

@@ -21,6 +21,17 @@ public class Hazel_Aadit : MonoBehaviour
 
     public TimeManager timeManager;
 
+    public float hangtime = 0.2f;
+    private float hangCounter;
+
+    public float jumpBufferLength = 0.1f;
+    private float jumpBufferCount;
+
+    public Transform camTarget;
+    public float aheadAmount = 2f;
+    public float aheadSpeed = 1f;
+
+
     public static bool isHit = false; // To prevent player from being able to move for 2s after they are hit
 
     float startingGravityScale;
@@ -45,6 +56,18 @@ public class Hazel_Aadit : MonoBehaviour
 
         if (!isHit) // Player can only do something if they have not been hit
         {
+            //if (CrossPlatformInputManager.GetAxisRaw("Horizontal") != 0) // Modification 4 Camera moves a bit ahead of player
+
+            //{
+            //    camTarget.localPosition = new Vector3
+            //                (Mathf.Lerp(camTarget.localPosition.x,
+            //                            camTarget.localPosition.x+(aheadAmount * CrossPlatformInputManager.GetAxisRaw("Horizontal")), // When we turn left, cam target isn't turning left
+            //                            aheadSpeed * Time.deltaTime),
+            //                camTarget.localPosition.y,
+            //                camTarget.localPosition.z);
+
+            //}
+
 
             Run();
             Jump();
@@ -59,10 +82,13 @@ public class Hazel_Aadit : MonoBehaviour
 
             ExitLevel();
 
+          
         }
 
 
         timeManager.DoSlowMotion(); // TIME!!!
+
+       
 
     }
 
@@ -160,16 +186,31 @@ public class Hazel_Aadit : MonoBehaviour
     private void Jump()
     {
 
-        //To prevent wall jumping:
-        if (!myPlayerFeet.IsTouchingLayers(LayerMask.GetMask("Ground"))) // If the Player isn't touching the ground, they can't jump again
-        {
-            return;
-        }
-
+        Boolean isGrounded = myPlayerFeet.IsTouchingLayers(LayerMask.GetMask("Ground"));
 
         Boolean isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
 
-        if (isJumping)
+        if(isGrounded)                                      // Modification 2 Hang Time (Jump a little late, after leaving the platform)
+        {
+
+            hangCounter = hangtime;
+        }
+
+        else
+        {
+            hangCounter -= Time.unscaledDeltaTime;
+        }
+
+        if(isJumping)                                       // Modification 3 Jump Buffer (Jump a little early, before hitting ground)
+        {
+            jumpBufferCount = jumpBufferLength;
+        }
+        else
+        {
+            jumpBufferCount -= Time.unscaledDeltaTime;
+        }
+
+        if (jumpBufferCount>=0 && hangCounter>0f)
         {
             myAnimator.SetTrigger("J");
 
@@ -177,6 +218,13 @@ public class Hazel_Aadit : MonoBehaviour
 
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, jumpSpeed); // If the user presses space (default positive button for "Jump", player gets an impulse in +Y direction)
             myRigidBody2D.velocity = jumpVelocity;
+
+            jumpBufferCount = 0;
+        }
+
+        if(CrossPlatformInputManager.GetButtonUp("Jump")&&myRigidBody2D.velocity.y>0)
+        {
+            myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x, myRigidBody2D.velocity.y*0.5f);  // Modification 1 Mini tap jumps
         }
 
 

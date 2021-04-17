@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -361052559
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 4035959289877228764, guid: dca369dd71650b64fa792715beb7e177, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.042598948, y: -0.051118672}
-  m_Size: {x: 0.39818713, y: 0.6708201}
+  m_Offset: {x: -0.7034149, y: 0.16308892}
+  m_Size: {x: 0.8400116, y: 1.2151034}
   m_Direction: 0
 --- !u!95 &1729144150347077451
 Animator:
@@ -155,7 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef6ba3b6c2851b44b96d0bf3b5117c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSpeed: 0
   runSpeed: 5
+  isWizard: 0
 --- !u!61 &1729144150347077449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,16 +171,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6483307, y: -0.27490377}
+  m_Offset: {x: -1.2010803, y: -0.27490377}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.8125, y: 2.8125}
+    oldSize: {x: 4.5, y: 4.5}
     newSize: {x: 1.2666667, y: 0.93333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15783691, y: 0.7728617}
+  m_Size: {x: 0.30978394, y: 0.7728617}
   m_EdgeRadius: 0
