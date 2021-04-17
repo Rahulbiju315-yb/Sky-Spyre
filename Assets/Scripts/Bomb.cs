@@ -5,34 +5,31 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    [SerializeField] float animationSpeed  =1f;
 
     [SerializeField] Vector2 explosionForce = new Vector2(100f, 100f);
     [SerializeField] float bombRadius = 3f;
+    [SerializeField] float animationSpeed = 1.5f;
     Animator myAnimator;
 
-    // Start is called before the first frame update
     void Start()
     {
         myAnimator = GetComponent<Animator>();
+    }
+    void Update()
+    {
+
         CorrectAnimSpeed();
     }
 
     private void CorrectAnimSpeed()
     {
-        if (Time.timeScale == 0.5f) //0.5x
-        {
-            animationSpeed = 2f;
-        }
 
-        if (Time.timeScale == 0.75f)
-        {
-            animationSpeed = 1.33f;
-        }
+        if (Time.timeScale < 1f)
+            animationSpeed = 1.5f / Time.timeScale;
 
         if (Time.timeScale >= 1f)
         {
-            animationSpeed = 1f;
+            animationSpeed = 1.5f;
         }
 
 

@@ -12,7 +12,7 @@ public class DIalogueManager : MonoBehaviour
 
     public Animator animator;
 
-    private Queue<string> sentences;
+    public static Queue<string> sentences;
     void Start()
     {
         sentences = new Queue<string>();
