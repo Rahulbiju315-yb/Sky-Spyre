@@ -21,7 +21,7 @@ public class DarkWizard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hit>=10 && dead ==false){
+        if(hit>=14 && dead ==false){
             dead=true;
             Debug.Log("dying");
             StartCoroutine(OnDeath());
