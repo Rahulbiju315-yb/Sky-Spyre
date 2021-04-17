@@ -2933,6 +2933,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 401609766}
     m_Modifications:
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4416809
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3580004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.8404617
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5674731
+      objectReference: {fileID: 0}
     - target: {fileID: 2753382933137809816, guid: aebee175c350970478191c50f100d255, type: 3}
       propertyPath: m_Name
       value: Fire Worm-Modif (2)
@@ -2947,7 +2963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2753382933137809820, guid: aebee175c350970478191c50f100d255, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.84
+      value: -13.06
       objectReference: {fileID: 0}
     - target: {fileID: 2753382933137809820, guid: aebee175c350970478191c50f100d255, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9372,6 +9388,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 401609766}
     m_Modifications:
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Size.x
+      value: 0.33216
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0288321
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.7505498
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.40288895
+      objectReference: {fileID: 0}
     - target: {fileID: 2753382933137809816, guid: aebee175c350970478191c50f100d255, type: 3}
       propertyPath: m_Name
       value: Fire Worm-Modif (1)
@@ -9386,7 +9418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2753382933137809820, guid: aebee175c350970478191c50f100d255, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.71
+      value: -10.48
       objectReference: {fileID: 0}
     - target: {fileID: 2753382933137809820, guid: aebee175c350970478191c50f100d255, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12446,6 +12478,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 401609766}
     m_Modifications:
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Size.x
+      value: 0.24683762
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Size.y
+      value: 1.156819
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.7718792
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753382933137809809, guid: aebee175c350970478191c50f100d255, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4668824
+      objectReference: {fileID: 0}
     - target: {fileID: 2753382933137809816, guid: aebee175c350970478191c50f100d255, type: 3}
       propertyPath: m_Name
       value: Fire Worm-Modif
@@ -12460,7 +12508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2753382933137809820, guid: aebee175c350970478191c50f100d255, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.353127
+      value: 8.87
       objectReference: {fileID: 0}
     - target: {fileID: 2753382933137809820, guid: aebee175c350970478191c50f100d255, type: 3}
       propertyPath: m_LocalPosition.z

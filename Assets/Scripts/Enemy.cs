@@ -33,15 +33,9 @@ public class Enemy : MonoBehaviour
 
     private void CorrectAnimSpeed()
     {
-        if (Time.timeScale == 0.5f) //0.5x
-        {
-            animationSpeed = 2f;
-        }
 
-        if (Time.timeScale == 0.75f)
-        {
-            animationSpeed = 1.33f;
-        }
+        if (Time.timeScale < 1f)
+            animationSpeed= 1 / Time.timeScale;
 
         if (Time.timeScale >= 1f)
         {
@@ -90,15 +84,9 @@ public class Enemy : MonoBehaviour
 
     private void enemyTimeBubble()
     {
-        if (Time.timeScale == 0.5f) //0.5x
-        {
-            runSpeed = 10f;
-        }
 
-        if (Time.timeScale == 0.75f)
-        {
-            runSpeed = 6.67f;
-        }
+        if (Time.timeScale < 1f)
+            runSpeed = 5 / Time.timeScale;
 
         if (Time.timeScale >= 1f)
         {

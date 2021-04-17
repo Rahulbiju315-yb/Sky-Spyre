@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -850525783
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -4658123360840285283, guid: 751d35b27bb503a43bd1a159be0ad226, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diamondPickupSFX: {fileID: 8300000, guid: ce0bb883c7053b94aaf81fb49bdac747, type: 3}
+  diamondPoints: 1
