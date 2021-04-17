@@ -188,6 +188,7 @@ public class Player : MonoBehaviour
 
         if(isJumping)
         {
+            myAnimator.SetTrigger("Jump");
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, jumpSpeed); // If the user presses space (default positive button for "Jump", player gets an impulse in +Y direction)
             myRigidBody2D.velocity = jumpVelocity;
         }

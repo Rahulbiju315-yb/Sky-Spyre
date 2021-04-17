@@ -24,6 +24,7 @@ public class ProjectileSource : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hasActivated = true;
         player = GameObject.Find("Player");
         projectiles = new GameObject[numberOfProjectiles];
         projectileStartTime = new float[numberOfProjectiles];
