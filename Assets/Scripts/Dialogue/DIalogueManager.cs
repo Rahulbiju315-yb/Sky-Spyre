@@ -49,7 +49,7 @@ public class DIalogueManager : MonoBehaviour
 
     }
 
-    IEnumerator TypeSentence(string sentence)
+    public IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
@@ -61,7 +61,6 @@ public class DIalogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-
         animator.SetBool("isOpen",false);
         Debug.Log("End of convo");
     }
