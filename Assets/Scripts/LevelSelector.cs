@@ -7,7 +7,7 @@ public class LevelSelector : MonoBehaviour
 {
     public void LoadTimeLevel()
     {
-        SceneManager.LoadScene(2); // Make sure Time level is second
+        SceneManager.LoadScene(4); // Make sure Time level is second
     }
 
     public void LoadDarknessLevel()
@@ -17,7 +17,7 @@ public class LevelSelector : MonoBehaviour
 
     public void LoadGravityLevel()
     {
-        SceneManager.LoadScene(4); // Make sure Gravity level is second
+        SceneManager.LoadScene(2); // Make sure Gravity level is second
     }
 
 
