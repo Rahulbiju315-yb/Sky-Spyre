@@ -34,13 +34,8 @@ public class Enemy : MonoBehaviour
     private void CorrectAnimSpeed()
     {
 
-        if (Time.timeScale < 1f)
-            animationSpeed= 1 / Time.timeScale;
+            animationSpeed= 1f / Time.timeScale;
 
-        if (Time.timeScale >= 1f)
-        {
-            animationSpeed = 1f;
-        }
 
 
         enemyAnimator.SetFloat("WizSpeed", animationSpeed);
@@ -84,14 +79,8 @@ public class Enemy : MonoBehaviour
 
     private void enemyTimeBubble()
     {
+            runSpeed = 5f / Time.timeScale;
 
-        if (Time.timeScale < 1f)
-            runSpeed = 5 / Time.timeScale;
-
-        if (Time.timeScale >= 1f)
-        {
-            runSpeed = 5f;
-        }
 
     }
 
