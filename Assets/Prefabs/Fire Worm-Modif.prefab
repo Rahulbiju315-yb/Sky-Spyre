@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2753382933137809809}
   - component: {fileID: 2753382933137809817}
   m_Layer: 13
-  m_Name: Fire Worm 1
+  m_Name: Fire Worm-Modif
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.8125, y: 2.8125}
+    oldSize: {x: 5.625, y: 5.625}
     newSize: {x: 1.2666667, y: 0.93333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -181,6 +181,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.31682467, y: 0.24893475}
-  m_Size: {x: 1.3188968, y: 1.3188968}
+  m_Offset: {x: -0.91192245, y: 0.31620502}
+  m_Size: {x: 1.8260231, y: 2.2399998}
   m_Direction: 0
