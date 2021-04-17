@@ -102,10 +102,22 @@ public class Player : MonoBehaviour
             myAnimator.SetTrigger("Attacking"); // Activate the animation
 
             Collider2D[] enemiesToHit = Physics2D.OverlapCircleAll(hurtBox.position, attackRadius, LayerMask.GetMask("Enemy")); // OverlapCircleAll returns an array of Collider2Ds
+            Collider2D[] bossHit = Physics2D.OverlapCircleAll(hurtBox.position, attackRadius, LayerMask.GetMask("Boss"));
 
             foreach(Collider2D enemy in enemiesToHit)
             {
-                enemy.GetComponent<Enemy>().Dying(); // Get a reference to the script of a collider in the array and call the method Dying()
+                Enemy e = enemy.GetComponent<Enemy>();
+                if (e != null)
+                { 
+                    e.Dying(); // Get a reference to the script of a collider in the array and call the method Dying()
+                }
+            }
+
+            foreach(Collider2D boss in bossHit){
+                DarkWizard d = boss.GetComponent<DarkWizard>();
+                if(d!=null){
+                    d.Hit();
+                }
             }
 
 
