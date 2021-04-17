@@ -13,17 +13,15 @@ public class EmitScript : MonoBehaviour
     public GameObject litPSprefab;
     public float emissionVelocity;
 
-    private bool hasBeenAcquired;
+    static private bool hasBeenAcquired;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
         playerAnimator = player.GetComponent<Animator>();
         lastTime = 0;
-        isAlive = false;
-        hasBeenAcquired = false;
-
-}
+        hasBeenAcquired = true;
+    }
 
     public void GainPowerup()
     {
