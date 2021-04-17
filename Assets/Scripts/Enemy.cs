@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
     IEnumerator DestroyEnemy() // Coroutine to make enemy disappear after 2s
     {
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSecondsRealtime(1);
 
         Destroy(gameObject);
     }
