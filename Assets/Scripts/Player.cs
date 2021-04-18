@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     float startingGravityScale;
 
-    static int maxChkpPriority;
+    public static int maxChkpPriority;
     static Vector3 chkpPosition;
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         {
             if (maxChkpPriority == 0)
                 chkpPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            else if (GameObject.Find("Game Session").GetComponent<GameSession>().GetPlayerLives() < 3)
+            else
             {
                 transform.position = new Vector3(chkpPosition.x, chkpPosition.y, chkpPosition.z);
             }
@@ -246,7 +246,6 @@ public class Player : MonoBehaviour
         myAnimator.SetTrigger("Hitting");
         isHit = true;
         StartCoroutine(stopBeingHit(2f));
-        FindObjectOfType<GameSession>().processPlayerDeath();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         if (maxChkpPriority > 0 && SceneManager.GetActiveScene().name == "Dark")
         {
