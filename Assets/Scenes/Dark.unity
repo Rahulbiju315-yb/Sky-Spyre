@@ -5646,6 +5646,79 @@ MonoBehaviour:
     - Oh no!! Looks like we entered the layer of the shadow soveregin!!
     - Quick!! Find the rumoured relic that bestows upon the bearer the power of the
       eternal lights!!
+--- !u!1001 &734418382
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7955745530613532678, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532728, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532728, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 15017bb2609c6a1429f891236797e70e, type: 3}
+    - target: {fileID: 7955745530613532728, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ce0bb883c7053b94aaf81fb49bdac747, type: 3}
+    - target: {fileID: 7955745530613532728, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: Diamond
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.589203
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.0441177
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -56.651684
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955745530613532729, guid: 7292608457853d9479b0eb2a85228198, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7292608457853d9479b0eb2a85228198, type: 3}
 --- !u!82 &756774792
 AudioSource:
   m_ObjectHideFlags: 0

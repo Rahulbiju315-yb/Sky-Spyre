@@ -44,16 +44,19 @@ public class Enemy : MonoBehaviour
 
     public void Dying()
     {
-
-        if(!isWizard)
+        AudioManager manager = FindObjectOfType<AudioManager>();
+        if (manager != null)
         {
+            if (!isWizard)
+            {
 
-            FindObjectOfType<AudioManager>().Play("Worm Death");
-        }
-        if(isWizard)
-        {
+                manager.Play("Worm Death");
+            }
+            if (isWizard)
+            {
 
-            FindObjectOfType<AudioManager>().Play("Wizard Death");
+                 manager.Play("Wizard Death");
+            }
         }
         enemyAnimator.SetTrigger("Die");
 
