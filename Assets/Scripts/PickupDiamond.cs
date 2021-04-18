@@ -39,7 +39,9 @@ public class PickupDiamond : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<AudioManager>().Play("Diamond");
+        AudioManager manager = FindObjectOfType<AudioManager>();
+        if(manager != null)
+            manager.Play("Diamond");
 
         FindObjectOfType<GameSession>().AddScore(diamondPoints); // increase the score whenever player collects a diamond
 
