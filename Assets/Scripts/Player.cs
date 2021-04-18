@@ -237,15 +237,16 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.gameObject.layer ==  LayerMask.NameToLayer("Traps"))
         {
-            OnDeath();
+            OnTrapHit();
         }
     }
 
-    private void OnDeath()
+    private void OnTrapHit()
     {
         myAnimator.SetTrigger("Hitting");
         isHit = true;
         StartCoroutine(stopBeingHit(2f));
+        FindObjectOfType<GameSession>().processPlayerDeath();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         if (maxChkpPriority > 0 && SceneManager.GetActiveScene().name == "Dark")
         {
@@ -256,7 +257,7 @@ public class Player : MonoBehaviour
     {
         if (collision.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Traps"))
         {
-            OnDeath();
+            OnTrapHit();
         }
 
         if (collision.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("SavePoint"))

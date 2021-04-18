@@ -26,6 +26,8 @@ public class RedWizard : MonoBehaviour
         if(lcapL.IsLit() && lcapB.IsLit() && lcapT.IsLit() && lcapR.IsLit() && notDead)
         {
             StartCoroutine(OnDeath());
+            GameObject.Find("GODTop").SetActive(false);
+            Destroy(GameObject.Find("BGM1"));
         }
     }
 

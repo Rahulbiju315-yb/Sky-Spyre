@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletonScript : MonoBehaviour
+public class SingletonScriptBGM : MonoBehaviour
 {
     static GameObject singleton;
     private void Awake()
     {
-        if(singleton == null)
+        if (singleton == null)
         {
             singleton = gameObject;
             DontDestroyOnLoad(singleton);
