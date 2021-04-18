@@ -11,7 +11,7 @@ using TMPro;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] Text livesText;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] Text scoreText;
     public int score = 0;
     [SerializeField] int playerLives = 3;
     [SerializeField] Image[] hearts;
