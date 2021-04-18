@@ -14,11 +14,21 @@ public class DialogueTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Touching");
-
-        TriggerDialogue();
-        Destroy(gameObject);
+        if (collision.GetComponent<Collider2D>().name == "Player" || collision.GetComponent<Collider2D>().name == "Hazel_Aadit")
+        {
+            TriggerDialogue();
+            //Destroy(gameObject);
+        }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Collider2D>().name == "Player" || collision.GetComponent<Collider2D>().name == "Hazel_Aadit")
+        {
+            FindObjectOfType<DIalogueManager>().EndDialogue();
+            //Destroy(gameObject);
+        }
+    }
     //private void OnTriggerExit2D(Collider2D collision)
     //{   Debug.Log("Exit");
     //    DestroyDialogueTrigger();
@@ -27,7 +37,7 @@ public class DialogueTrigger : MonoBehaviour
 
     //void DestroyDialogueTrigger()
     //{
-        
+
     //    Hazel_Aadit.isHit = false;
     //    Destroy(gameObject);
     //}

@@ -16,7 +16,7 @@ public class GameSession : MonoBehaviour
 
     //Singleton Pattern
 
-    private void Awake() // This method executes even before Start()
+/*    private void Awake() // This method executes even before Start()
     {
         int numberOfGameSessions = FindObjectsOfType<GameSession>().Length; // Length of array of all Game Sessions
 
@@ -28,7 +28,7 @@ public class GameSession : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-    }
+    }*/
 
     private void Start()
     {

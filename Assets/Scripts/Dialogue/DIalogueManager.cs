@@ -16,6 +16,7 @@ public class DIalogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        animator = GameObject.Find("Dialogue Box").GetComponent<Animator>();
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -42,7 +43,9 @@ public class DIalogueManager : MonoBehaviour
             return;
         }
 
+        
         string sentence = sentences.Dequeue();
+        Debug.Log(sentence);
         //dialogueText.text = sentence;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
