@@ -223,7 +223,7 @@ public class Hazel_Aadit : MonoBehaviour
         {
             CreateDust();
 
-            FindObjectOfType<AudioManager>().Play("Jump");
+            //FindObjectOfType<AudioManager>().Play("Jump");
             myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x, myRigidBody2D.velocity.y*0.5f);  // Modification 1 Mini tap jumps
         }
 
