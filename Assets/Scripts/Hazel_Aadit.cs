@@ -110,6 +110,9 @@ public class Hazel_Aadit : MonoBehaviour
     {
         if (CrossPlatformInputManager.GetButtonDown("Fire1")) // Check the button strings in Project Settings->Input Manager
         {
+
+            FindObjectOfType<AudioManager>().Play("Attack");
+
             myAnimator.SetTrigger("Attacking"); // Activate the animation
 
             Collider2D[] enemiesToHit = Physics2D.OverlapCircleAll(hurtBox.position, attackRadius, LayerMask.GetMask("Enemy")); // OverlapCircleAll returns an array of Collider2Ds
@@ -128,8 +131,11 @@ public class Hazel_Aadit : MonoBehaviour
 
     public void PlayerHit()
     {
+        FindObjectOfType<AudioManager>().Play("Hit");
 
         myRigidBody2D.velocity = hitSpeed * new Vector2(-transform.localScale.x, 1f); // -transform.localScale.x (-1 or 1) kicks the  player AWAY from the enemy
+       
+
         myAnimator.SetTrigger("Hitting");
 
         isHit = true; // Prevents player from doing anyting for 2s
@@ -174,7 +180,8 @@ public class Hazel_Aadit : MonoBehaviour
 
     private void Jump()
     {
-        
+
+
         Boolean isGrounded = myPlayerFeet.IsTouchingLayers(LayerMask.GetMask("Ground"));
 
         Boolean isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
@@ -204,6 +211,7 @@ public class Hazel_Aadit : MonoBehaviour
         {   
             CreateDust();
             myAnimator.SetTrigger("J");
+            FindObjectOfType<AudioManager>().Play("Jump");
 
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, jumpSpeed); // If the user presses space (default positive button for "Jump", player gets an impulse in +Y direction)
             myRigidBody2D.velocity = jumpVelocity;
@@ -214,6 +222,8 @@ public class Hazel_Aadit : MonoBehaviour
         if(CrossPlatformInputManager.GetButtonUp("Jump")&&myRigidBody2D.velocity.y>0)
         {
             CreateDust();
+
+            FindObjectOfType<AudioManager>().Play("Jump");
             myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x, myRigidBody2D.velocity.y*0.5f);  // Modification 1 Mini tap jumps
         }
 
@@ -243,6 +253,7 @@ public class Hazel_Aadit : MonoBehaviour
         if(isRunning)
         {
             CreateDust();
+
 
         }
         myAnimator.SetBool("Running", isRunning);

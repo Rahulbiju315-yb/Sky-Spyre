@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PickupHeart : MonoBehaviour
 {
-    [SerializeField] AudioClip heartPickupSFX;
 
     [SerializeField] int heartLives = 1; // No. of lives a player gets when they collect a heart
 
@@ -40,7 +39,7 @@ public class PickupHeart : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioSource.PlayClipAtPoint(heartPickupSFX, Camera.main.transform.position);
+        FindObjectOfType<AudioManager>().Play("Heart");
 
         FindObjectOfType<GameSession>().AddLife(heartLives);
         
