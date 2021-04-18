@@ -10,6 +10,7 @@ public class ExitDark : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Player.maxChkpPriority = 0;
+            Destroy(GameObject.Find("BGM1"));
             SceneManager.LoadScene("Title");
         }
     }
