@@ -69,6 +69,9 @@ TagManager:
   - name: Player
     uniqueID: 3035428661
     locked: 0
+  - name: Fake
+    uniqueID: 541689451
+    locked: 0
   - name: Bomb
     uniqueID: 2564690341
     locked: 0

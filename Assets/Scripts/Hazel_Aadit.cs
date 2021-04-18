@@ -27,9 +27,9 @@ public class Hazel_Aadit : MonoBehaviour
     public float jumpBufferLength = 0.1f;
     private float jumpBufferCount;
 
-    public Transform camTarget;
-    public float aheadAmount = 2f;
-    public float aheadSpeed = 1f;
+    public float horizontalDamping = 0.22f;
+
+    public ParticleSystem dust;
 
 
     public static bool isHit = false; // To prevent player from being able to move for 2s after they are hit
@@ -46,6 +46,7 @@ public class Hazel_Aadit : MonoBehaviour
 
         startingGravityScale = myRigidBody2D.gravityScale; // We need a reference to our player's initial gravity scale (FOR STICKING TO THE DRAPES WHILE CLIMBING)
 
+
         myAnimator.SetTrigger("Appearing");
 
     }
@@ -56,17 +57,6 @@ public class Hazel_Aadit : MonoBehaviour
 
         if (!isHit) // Player can only do something if they have not been hit
         {
-            //if (CrossPlatformInputManager.GetAxisRaw("Horizontal") != 0) // Modification 4 Camera moves a bit ahead of player
-
-            //{
-            //    camTarget.localPosition = new Vector3
-            //                (Mathf.Lerp(camTarget.localPosition.x,
-            //                            camTarget.localPosition.x+(aheadAmount * CrossPlatformInputManager.GetAxisRaw("Horizontal")), // When we turn left, cam target isn't turning left
-            //                            aheadSpeed * Time.deltaTime),
-            //                camTarget.localPosition.y,
-            //                camTarget.localPosition.z);
-
-            //}
 
 
             Run();
@@ -82,7 +72,6 @@ public class Hazel_Aadit : MonoBehaviour
 
             ExitLevel();
 
-          
         }
 
 
@@ -185,7 +174,7 @@ public class Hazel_Aadit : MonoBehaviour
 
     private void Jump()
     {
-
+        
         Boolean isGrounded = myPlayerFeet.IsTouchingLayers(LayerMask.GetMask("Ground"));
 
         Boolean isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
@@ -195,7 +184,6 @@ public class Hazel_Aadit : MonoBehaviour
 
             hangCounter = hangtime;
         }
-
         else
         {
             hangCounter -= Time.unscaledDeltaTime;
@@ -210,11 +198,12 @@ public class Hazel_Aadit : MonoBehaviour
             jumpBufferCount -= Time.unscaledDeltaTime;
         }
 
+
+
         if (jumpBufferCount>=0 && hangCounter>0f)
-        {
+        {   
+            CreateDust();
             myAnimator.SetTrigger("J");
-
-
 
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, jumpSpeed); // If the user presses space (default positive button for "Jump", player gets an impulse in +Y direction)
             myRigidBody2D.velocity = jumpVelocity;
@@ -224,6 +213,7 @@ public class Hazel_Aadit : MonoBehaviour
 
         if(CrossPlatformInputManager.GetButtonUp("Jump")&&myRigidBody2D.velocity.y>0)
         {
+            CreateDust();
             myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x, myRigidBody2D.velocity.y*0.5f);  // Modification 1 Mini tap jumps
         }
 
@@ -235,7 +225,9 @@ public class Hazel_Aadit : MonoBehaviour
     {
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal"); // Needs a string argument from Project Settings->Input Manager->Axes->Horizontal
 
-        Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody2D.velocity.y); // Y velocity doesn't change
+        float horizontalVelocity = controlThrow * runSpeed;
+        horizontalVelocity *= Mathf.Pow(1f-horizontalDamping, Time.unscaledDeltaTime*10f);
+        Vector2 playerVelocity = new Vector2(horizontalVelocity, myRigidBody2D.velocity.y); // Y velocity doesn't change
 
         myRigidBody2D.velocity = playerVelocity;
 
@@ -248,6 +240,11 @@ public class Hazel_Aadit : MonoBehaviour
     private void toRunningState()
     {
         bool isRunning = Mathf.Abs(myRigidBody2D.velocity.x) > Mathf.Epsilon;
+        if(isRunning)
+        {
+            CreateDust();
+
+        }
         myAnimator.SetBool("Running", isRunning);
     }
 
@@ -256,6 +253,7 @@ public class Hazel_Aadit : MonoBehaviour
         // Mathf.Abs returns the absolute value
         //Mathf.Sign returns +-1 for positive/negative numbers
         //Mathf.Epsilon is a very small positive number 0.000001
+
 
         bool runningHorizontally = Mathf.Abs(myRigidBody2D.velocity.x) > Mathf.Epsilon;    //Recall when we did the run originally, controlThrow went very close to zero, but never exactly zero
                                                                                            //Hence, we compare with Mathf.Epsilon, instead of 0 directly
@@ -270,6 +268,11 @@ public class Hazel_Aadit : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(hurtBox.position, attackRadius);  // To visualise the attacking radius
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }
 
