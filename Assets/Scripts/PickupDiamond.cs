@@ -45,11 +45,17 @@ public class PickupDiamond : MonoBehaviour
 
         TimeManager timeManager = FindObjectOfType<TimeManager>();
         if(timeManager != null)
+        {
             timeManager.slowDownFactor += diamondTimeScore;
 
+
+        }
         EmitScript escript = FindObjectOfType<EmitScript>();
         if (escript != null)
+        {
+
             escript.GainPowerup();
+        }
 
         Destroy(gameObject); // Make the heart disappear, when player touches them
     }

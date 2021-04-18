@@ -42,7 +42,10 @@ public class PickupHeart : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioSource.PlayClipAtPoint(heartPickupSFX, Camera.main.transform.position);
+
+        FindObjectOfType<AudioManager>().Play("Heart");
+
+       // AudioSource.PlayClipAtPoint(heartPickupSFX, Camera.main.transform.position);
 
         FindObjectOfType<GameSession>().AddLife(heartLives);
         
