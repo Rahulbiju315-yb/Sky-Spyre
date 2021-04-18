@@ -46,9 +46,9 @@ public class DIalogueManager : MonoBehaviour
         
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
-        //dialogueText.text = sentence;
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        dialogueText.text = sentence;
+        //StopAllCoroutines();
+        //StartCoroutine(TypeSentence(sentence));
 
     }
 
