@@ -7,7 +7,7 @@ public class PickupDiamond : MonoBehaviour
     [SerializeField] int diamondPoints = 2;
 
 
-    
+    [SerializeField] AudioClip diamondPickupSFX;
     [SerializeField] float diamondTimeScore = 0.2f;
     [SerializeField] float animationSpeed = 1f;
     Animator diamondAnimator;
@@ -39,7 +39,11 @@ public class PickupDiamond : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<AudioManager>().Play("Diamond");
+        AudioManager manager = FindObjectOfType<AudioManager>();
+        if(manager != null)
+            manager.Play("Diamond");
+        else
+            AudioSource.PlayClipAtPoint(diamondPickupSFX, Camera.main.transform.position);
 
         FindObjectOfType<GameSession>().AddScore(diamondPoints); // increase the score whenever player collects a diamond
 

@@ -17,7 +17,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] Image[] hearts;
 
     //Singleton Pattern
-
+    private GameSession singleton;
     private void Awake() // This method executes even before Start()
     {
         int numberOfGameSessions = FindObjectsOfType<GameSession>().Length; // Length of array of all Game Sessions
@@ -28,6 +28,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            singleton = this;
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -106,6 +107,10 @@ public class GameSession : MonoBehaviour
 
     private void ResetGame()
     {
+        if(SceneManager.GetActiveScene().name == "Dark")
+        {
+            Destroy(GameObject.Find("BGM1"));
+        }
         SceneManager.LoadScene(0);
         Destroy(gameObject); // Destroy the current Game session, to reset the lives and the score
     }

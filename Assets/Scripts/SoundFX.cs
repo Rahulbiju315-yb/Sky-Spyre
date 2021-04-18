@@ -12,7 +12,8 @@ public class SoundFX : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.Find("Player");
-        source = GameObject.Find(gameObjectName).GetComponent<AudioSource>();
+        if(GameObject.Find(gameObjectName))
+            source = GameObject.Find(gameObjectName).GetComponent<AudioSource>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

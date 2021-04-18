@@ -35,13 +35,16 @@ public class Player : MonoBehaviour
         startingGravityScale = myRigidBody2D.gravityScale; // We need a reference to our player's initial gravity scale (FOR STICKING TO THE DRAPES WHILE CLIMBING)
 
         myAnimator.SetTrigger("Appearing");
-        
-        if(maxChkpPriority == 0)
-            chkpPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        else if(GameObject.Find("Game Session").GetComponent<GameSession>().GetPlayerLives() < 3)
+
+        if (SceneManager.GetActiveScene().name == "Dark")
         {
-            transform.position = new Vector3(chkpPosition.x, chkpPosition.y, chkpPosition.z);
-        }    
+            if (maxChkpPriority == 0)
+                chkpPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            else if (GameObject.Find("Game Session").GetComponent<GameSession>().GetPlayerLives() < 3)
+            {
+                transform.position = new Vector3(chkpPosition.x, chkpPosition.y, chkpPosition.z);
+            }
+        }
     
     }
 
@@ -234,17 +237,18 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.gameObject.layer ==  LayerMask.NameToLayer("Traps"))
         {
-            OnDeath();
+            OnTrapHit();
         }
     }
 
-    private void OnDeath()
+    private void OnTrapHit()
     {
         myAnimator.SetTrigger("Hitting");
         isHit = true;
         StartCoroutine(stopBeingHit(2f));
+        FindObjectOfType<GameSession>().processPlayerDeath();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        if (maxChkpPriority > 0)
+        if (maxChkpPriority > 0 && SceneManager.GetActiveScene().name == "Dark")
         {
             transform.position = new Vector3(chkpPosition.x, chkpPosition.y, transform.position.z);
         }
@@ -253,7 +257,7 @@ public class Player : MonoBehaviour
     {
         if (collision.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Traps"))
         {
-            OnDeath();
+            OnTrapHit();
         }
 
         if (collision.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("SavePoint"))
