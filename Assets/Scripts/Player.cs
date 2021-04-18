@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         
         if(maxChkpPriority == 0)
             chkpPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        else
+        else if(GameObject.Find("Game Session").GetComponent<GameSession>().GetPlayerLives() < 3)
         {
             transform.position = new Vector3(chkpPosition.x, chkpPosition.y, chkpPosition.z);
         }    
@@ -188,7 +188,6 @@ public class Player : MonoBehaviour
 
         if(isJumping)
         {
-            myAnimator.SetTrigger("Jump");
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, jumpSpeed); // If the user presses space (default positive button for "Jump", player gets an impulse in +Y direction)
             myRigidBody2D.velocity = jumpVelocity;
         }
@@ -248,7 +247,6 @@ public class Player : MonoBehaviour
         if (maxChkpPriority > 0)
         {
             transform.position = new Vector3(chkpPosition.x, chkpPosition.y, transform.position.z);
-            Debug.Log("Hello there");
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -260,7 +258,6 @@ public class Player : MonoBehaviour
 
         if (collision.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("SavePoint"))
         {
-            Debug.Log("Checkpoint");
             int priority = collision.GetComponent<Collider2D>().gameObject.GetComponent<SavePoint>().priority;
             if (priority > maxChkpPriority)
             {

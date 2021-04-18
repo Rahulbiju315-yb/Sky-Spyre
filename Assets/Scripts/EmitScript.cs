@@ -20,7 +20,6 @@ public class EmitScript : MonoBehaviour
         player = GameObject.Find("Player");
         playerAnimator = player.GetComponent<Animator>();
         lastTime = 0;
-        hasBeenAcquired = true;
     }
 
     public void GainPowerup()

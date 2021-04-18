@@ -16,7 +16,7 @@ public class GameSession : MonoBehaviour
 
     //Singleton Pattern
 
-/*    private void Awake() // This method executes even before Start()
+    private void Awake() // This method executes even before Start()
     {
         int numberOfGameSessions = FindObjectsOfType<GameSession>().Length; // Length of array of all Game Sessions
 
@@ -28,7 +28,7 @@ public class GameSession : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-    }*/
+    }
 
     private void Start()
     {
@@ -37,9 +37,10 @@ public class GameSession : MonoBehaviour
 
     }
 
-    
-    
-
+    public int GetPlayerLives()
+    {
+        return playerLives;
+    }
     public void processPlayerDeath()
     {
         if (playerLives > 1) // If Player has 2 or more lives before, they're hit, subtract a life
