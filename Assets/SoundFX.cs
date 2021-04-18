@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class SoundFX : StateMachineBehaviour
 {
+    public string gameObjectName;
     AudioSource source;
     GameObject player;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        source = GameObject.Find("RunFX").GetComponent<AudioSource>();
         player = GameObject.Find("Player");
+        source = GameObject.Find(gameObjectName).GetComponent<AudioSource>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Then there were nonoe");
         if(source != null && !source.isPlaying && 
             player.GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
+            Debug.Log(source == null);
             source.Play();
         }
     }
