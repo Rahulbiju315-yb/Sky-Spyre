@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PickupDiamond : MonoBehaviour
 {
-    [SerializeField] AudioClip diamondPickupSFX;
-
     [SerializeField] int diamondPoints = 2;
 
 
@@ -41,7 +39,7 @@ public class PickupDiamond : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioSource.PlayClipAtPoint(diamondPickupSFX, Camera.main.transform.position); // The camera is following the player, so this works
+        FindObjectOfType<AudioManager>().Play("Diamond");
 
         FindObjectOfType<GameSession>().AddScore(diamondPoints); // increase the score whenever player collects a diamond
 

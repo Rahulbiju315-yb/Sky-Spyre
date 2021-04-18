@@ -45,6 +45,16 @@ public class Enemy : MonoBehaviour
     public void Dying()
     {
 
+        if(!isWizard)
+        {
+
+            FindObjectOfType<AudioManager>().Play("Worm Death");
+        }
+        if(isWizard)
+        {
+
+            FindObjectOfType<AudioManager>().Play("Wizard Death");
+        }
         enemyAnimator.SetTrigger("Die");
 
         GetComponent<CapsuleCollider2D>().enabled = false;  // To prevent any collisions after the enemy is dead

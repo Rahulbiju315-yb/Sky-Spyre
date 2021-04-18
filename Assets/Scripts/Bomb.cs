@@ -23,14 +23,7 @@ public class Bomb : MonoBehaviour
 
     private void CorrectAnimSpeed()
     {
-
-        if (Time.timeScale < 1f)
             animationSpeed = 1.5f / Time.timeScale;
-
-        if (Time.timeScale >= 1f)
-        {
-            animationSpeed = 1.5f;
-        }
 
 
         myAnimator.SetFloat("BombSpeed", animationSpeed);
@@ -67,6 +60,8 @@ public class Bomb : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         myAnimator.SetTrigger("Burn");     // To trigger the burning animation
+
+        FindObjectOfType<AudioManager>().Play("Bomb");
     }
 
     void DestroyBomb()
