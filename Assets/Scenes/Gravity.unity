@@ -6653,6 +6653,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 51605476, guid: ff9215743f59e014a941075b1b4c1b66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 51605477, guid: ff9215743f59e014a941075b1b4c1b66, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 428692870, guid: ff9215743f59e014a941075b1b4c1b66, type: 3}
       propertyPath: m_SizeDelta.x
       value: 43.981
@@ -6689,9 +6697,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -41.43706
       objectReference: {fileID: 0}
+    - target: {fileID: 1379485080, guid: ff9215743f59e014a941075b1b4c1b66, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1414277704, guid: ff9215743f59e014a941075b1b4c1b66, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667291232, guid: ff9215743f59e014a941075b1b4c1b66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667291233, guid: ff9215743f59e014a941075b1b4c1b66, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1808666029, guid: ff9215743f59e014a941075b1b4c1b66, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -6923,7 +6943,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1206441485021915974, guid: 48c4b624b948da445a3828760e07ed1e, type: 3}
   m_PrefabInstance: {fileID: 1428298529}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1988033016}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b3f0087e528ef343b2c5700977e8399, type: 3}
@@ -8280,6 +8300,10 @@ PrefabInstance:
     - target: {fileID: 643134957428863768, guid: 8e0f7505b530a1c46a0cc97d594de391, type: 3}
       propertyPath: m_Name
       value: DBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 643134957428863768, guid: 8e0f7505b530a1c46a0cc97d594de391, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6330728337260128902, guid: 8e0f7505b530a1c46a0cc97d594de391, type: 3}
       propertyPath: m_fontSize
@@ -93410,6 +93434,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2, y: 1.375}
   m_Direction: 0
+--- !u!1 &1988033016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 489811434425262059, guid: 48c4b624b948da445a3828760e07ed1e, type: 3}
+  m_PrefabInstance: {fileID: 1428298529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1988033017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988033016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b729d2c6673ea4eb4f7c61db52e970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2052110125
 PrefabInstance:
   m_ObjectHideFlags: 0
