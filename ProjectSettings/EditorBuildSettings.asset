@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Old levels/TIme Horizontal.unity
     guid: 7d9734b7029cffc449e8b1bfed903515
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 97f815e26cd9875438924a66b9aa3b12
   m_configObjects: {}
