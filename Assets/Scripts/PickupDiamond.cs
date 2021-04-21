@@ -24,15 +24,7 @@ public class PickupDiamond : MonoBehaviour
 
     private void CorrectAnimSpeed()
     {
-
-        if (Time.timeScale < 1f)
-            animationSpeed = 1 / Time.timeScale;
-
-        if (Time.timeScale >= 1f)
-        {
-            animationSpeed = 1f;
-        }
-
+            animationSpeed = 1f/ Time.timeScale;
 
         diamondAnimator.SetFloat("DiaSpeed", animationSpeed);
 
@@ -61,6 +53,6 @@ public class PickupDiamond : MonoBehaviour
             escript.GainPowerup();
         }
 
-        Destroy(gameObject); // Make the heart disappear, when player touches them
+        Destroy(gameObject); // Make the diamond disappear, when player touches them
     }
 }
