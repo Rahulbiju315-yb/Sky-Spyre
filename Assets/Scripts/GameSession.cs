@@ -29,7 +29,7 @@ public class GameSession : MonoBehaviour
         else
         {
             singleton = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
     }
 

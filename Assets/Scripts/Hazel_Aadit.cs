@@ -74,8 +74,8 @@ public class Hazel_Aadit : MonoBehaviour
 
         }
 
-
-        timeManager.DoSlowMotion(); // TIME!!!
+        if(timeManager!=null)
+            timeManager.DoSlowMotion(); // TIME!!!
 
        
 
@@ -111,8 +111,8 @@ public class Hazel_Aadit : MonoBehaviour
     {
         if (CrossPlatformInputManager.GetButtonDown("Fire1")) // Check the button strings in Project Settings->Input Manager
         {
-
-            FindObjectOfType<AudioManager>().Play("Attack");
+            if (FindObjectOfType<AudioManager>() != null)
+                FindObjectOfType<AudioManager>().Play("Attack");
 
             myAnimator.SetTrigger("Attacking"); // Activate the animation
 
@@ -212,7 +212,8 @@ public class Hazel_Aadit : MonoBehaviour
         {   
             CreateDust();
             myAnimator.SetTrigger("J");
-            FindObjectOfType<AudioManager>().Play("Jump");
+            if(FindObjectOfType<AudioManager>()!=null)
+                FindObjectOfType<AudioManager>().Play("Jump");
 
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, jumpSpeed); // If the user presses space (default positive button for "Jump", player gets an impulse in +Y direction)
             myRigidBody2D.velocity = jumpVelocity;
