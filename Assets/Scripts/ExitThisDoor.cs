@@ -26,6 +26,8 @@ public class ExitThisDoor : MonoBehaviour
     {
         yield return new WaitForSeconds(secondsToLoad);
 
+        Time.timeScale = 1f;
+
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // To get the current Scene
 
         SceneManager.LoadScene(currentSceneIndex + 1); // This loads the next scene, in the order that they are, from the 'Scenes in Build' window (File->Build Settings)

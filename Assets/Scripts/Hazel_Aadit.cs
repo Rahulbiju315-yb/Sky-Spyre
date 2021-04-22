@@ -96,6 +96,7 @@ public class Hazel_Aadit : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        Time.timeScale = 1f;
         FindObjectOfType<ExitThisDoor>().StartLoadingNextLevel();
         TurnOffRenderer();
 
