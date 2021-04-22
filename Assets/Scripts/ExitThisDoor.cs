@@ -30,7 +30,7 @@ public class ExitThisDoor : MonoBehaviour
 
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // To get the current Scene
 
-        SceneManager.LoadScene(currentSceneIndex + 1); // This loads the next scene, in the order that they are, from the 'Scenes in Build' window (File->Build Settings)
+        SceneManager.LoadScene("Ending"); // This loads the next scene, in the order that they are, from the 'Scenes in Build' window (File->Build Settings)
 
 
 

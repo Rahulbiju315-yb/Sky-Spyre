@@ -7,7 +7,7 @@ public class RestartExit : MonoBehaviour
 {
     public void Restart()
     {
-        SceneManager.LoadScene("Gravity");
+        SceneManager.LoadScene("Title");
     }
 
     public void Quit()
