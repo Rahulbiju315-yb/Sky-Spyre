@@ -5693,7 +5693,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit Door
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1015772169, guid: a5989cc029ab9b1418dc799076e8577b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a5989cc029ab9b1418dc799076e8577b, type: 3}
 --- !u!1 &394283559
 GameObject:
@@ -6689,6 +6690,24 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &554991138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6523242705298938975, guid: a5989cc029ab9b1418dc799076e8577b, type: 3}
+  m_PrefabInstance: {fileID: 364287302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &554991139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554991138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f81d1b025aec74582bd96658d539f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsToLoad: 0.1
 --- !u!1001 &619603460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6986,7 +7005,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1206441485021915974, guid: 48c4b624b948da445a3828760e07ed1e, type: 3}
   m_PrefabInstance: {fileID: 1428298529}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988033016}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b3f0087e528ef343b2c5700977e8399, type: 3}
@@ -93437,23 +93456,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2, y: 1.375}
   m_Direction: 0
---- !u!1 &1988033016 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 489811434425262059, guid: 48c4b624b948da445a3828760e07ed1e, type: 3}
-  m_PrefabInstance: {fileID: 1428298529}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1988033017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988033016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1b729d2c6673ea4eb4f7c61db52e970, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2052110125
 PrefabInstance:
   m_ObjectHideFlags: 0

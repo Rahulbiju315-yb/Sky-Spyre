@@ -32,7 +32,7 @@ public class Hazel_Aadit : MonoBehaviour
     public ParticleSystem dust;
 
 
-    public static bool isHit = false; // To prevent player from being able to move for 2s after they are hit
+    public bool isHit = false; // To prevent player from being able to move for 2s after they are hit
 
     float startingGravityScale;
 
