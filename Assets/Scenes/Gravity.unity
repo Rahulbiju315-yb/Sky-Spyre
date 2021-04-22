@@ -7750,7 +7750,7 @@ MonoBehaviour:
   projectileSpeed: 15
   projectileDelay: 2
   projectileLifetime: 2
-  attackDelay: 8
+  attackDelay: 2
   hasActivated: 0
 --- !u!114 &902475762
 MonoBehaviour:
